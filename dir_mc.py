@@ -1,6 +1,6 @@
 #USAGE python dir_mc.py sourcepath 
 
-import os, sys, mc, logging
+import os, sys, mc, logging, transition_mc
 
 logging.basicConfig(level=logging.DEBUG, format="%(asctime)s - %(levelname)s - %(message)s")
 
@@ -11,7 +11,7 @@ def task(sourcepath: str):
 		if file.endswith(".xlsx"):
 			files.append( os.path.join( sourcepath, file ) )
 	if len(files) > 0:
-		mc.get_data_to_dict(files, sourcepath)
+		transition_mc.get_data_to_dict(files, sourcepath)
 		logging.info("Chart created")
 	return
 	

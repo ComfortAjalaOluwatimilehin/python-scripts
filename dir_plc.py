@@ -6,9 +6,10 @@ logging.basicConfig(level=logging.DEBUG, format="%(asctime)s - %(levelname)s - %
 def task(directory):
 	
 	for filename in os.listdir(directory):
-		filepath = os.path.join(directory, filename)
-		plc.plot_line_chart(filepath)
-		logging.info("Chart  added to : " + filename)
+		if filename.endswith(".xlsx"):
+			filepath = os.path.join(directory, filename)
+			plc.plot_line_chart(filepath)
+			logging.info("Chart  added to : " + filename)
 
 	logging.info("Completed")
 
